@@ -1,0 +1,10 @@
+<div>
+    <p class="m-0" (click)="toggleEdit()" *ngIf="!isEdit">{{value}}</p>
+    <input (focusout)="toggleEdit()" (change)="somethingChanged($event)" type="text" id="titleName" [value]="value"
+        *ngIf="isEdit && !isTextArea">
+
+    <div *ngIf="isEdit && isTextArea">
+        <textarea (focusout)="toggleEdit()" (change)="somethingChanged($event)" type="text" id="titleName"
+            [value]="value"></textarea>
+    </div>
+</div>

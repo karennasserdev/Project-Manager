@@ -1,0 +1,56 @@
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content p-3">
+
+        <!-- Form -->
+        <form [formGroup]="cardForm" (submit)="submit()">
+
+            <!-- Modal Title -->
+            <div class="p-3">
+                <div class="form-group mb-0">
+                    <textarea type="text" class="form-control textarea-title" id="cardNameInput"
+                        placeholder="Card Title" [class.is-invalid]="isNameInvalid()"
+                        formControlName="cardName"></textarea>
+                    <small class="form-text text-danger" *ngIf="isNameInvalid()">Card name is
+                        required.</small>
+                </div>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body pb-0">
+                <div class="d-flex justify-content-center flex-column">
+
+                    <!-- Description -->
+                    <div class="form-group">
+                        <div class="mb-3">
+                            <div class="pl-1 color-text d-flex flex-row justify-content-start">
+                                <i class="fas fa-edit pr-2"></i>
+                                <h6>Description</h6>
+                            </div>
+                            <textarea id="modalCardDescription" class="textarea-style w-100"
+                                formControlName="cardDescription" placeholder="Description"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Comments -->
+                    <div class="form-group">
+                        <div>
+                            <div class="pl-1 color-text d-flex flex-row justify-content-start">
+                                <i class="far fa-comment pr-2"></i>
+                                <h6>Comments</h6>
+                            </div>
+                            <textarea id="modalCardComments" class="textarea-style w-100" formControlName="cardComments"
+                                placeholder="Comments"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer pt-1 pb-0">
+                <button #btnId type="button" class="btn btn-sm" data-dismiss="modal">Cancel</button>
+                <button type="submit" (click)="btnId.click()" [disabled]="isModalInvalid()"
+                    class="submit-btn btn btn-primary btn-sm" data-toggle="button">Save Card</button>
+            </div>
+        </form>
+    </div>
+</div>

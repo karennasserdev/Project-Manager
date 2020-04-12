@@ -1,0 +1,41 @@
+<div class="container-form vw-100 d-flex justify-content-center align-content-center">
+    <div class="rounded bg-light d-flex align-items-center">
+        <div class="p-5">
+            <!-- form -->
+            <form class="pl-5 pr-5" [formGroup]="form" (submit)="submit()">
+                <div class="mb-4 d-flex justify-content-center">
+                    <p class="title-form font-weight-bold">Log in to Project Manager</p>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" [class.is-invalid]="isEmailInvalid()"
+                        id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email">
+                    <small id="emailHelp" class="form-text text-danger mb-3" *ngIf="isEmailInvalid()">Email is
+                        required!</small>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" [class.is-invalid]="isPasswordInvalid()"
+                        id="exampleInputPassword1" formControlName="password">
+                    <small id="passwordHelp" class="form-text text-danger mb-4" *ngIf="isPasswordInvalid()">Password
+                        must have at least 6 characters!</small>
+                </div>
+
+                <!-- Check -->
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" [class.is-invalid]="isCheckboxInvalid()"
+                        id="exampleCheck1" formControlName="checkbox">
+                    <label class="form-check-label mb-3" for="exampleCheck1">I agree with Terms and Conditions</label>
+                </div>
+
+                <!-- Log in -->
+                <button type="submit" [disabled]="isFormInvalid()" class="submit-btn btn btn-primary btn-block active"
+                    data-toggle="button" aria-pressed="true">Log in</button>
+            </form>
+        </div>
+    </div>
+</div>

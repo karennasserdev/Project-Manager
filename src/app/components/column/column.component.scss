@@ -1,0 +1,29 @@
+.card-style {
+  width: 20em;
+}
+
+.button-card {
+  color: #347474;
+}
+
+.title-style {
+  color: #347474;
+}
+
+.c-header-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: #347474;
+  margin-top: 1em;
+}
+
+.card-body {
+  padding: 0.5em;
+  border-radius: 0.3em;
+  -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  -ms-border-radius: 0.3em;
+  -o-border-radius: 0.3em;
+}

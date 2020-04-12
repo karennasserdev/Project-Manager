@@ -1,0 +1,22 @@
+<!--modal form-->
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <!-- modal body -->
+        <form [formGroup]="columnForm" (submit)="submit()">
+            <div class="modal-body pb-0">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="columnNameInput" placeholder="Column Name"
+                        [class.is-invalid]="isNameInvalid()" formControlName="columnName">
+                    <small id="emailHelp" class="form-text text-danger" *ngIf="isNameInvalid()">Column name is
+                        required.</small>
+                </div>
+            </div>
+            <!-- modal footer -->
+            <div class="modal-footer p-1 m-0">
+                <button #btnId type="button" class="btn btn-sm" data-dismiss="modal">Cancel</button>
+                <button type="submit" (click)="btnId.click()" [disabled]="isModalInvalid()"
+                    class="submit-btn btn btn-primary btn-sm" data-toggle="button">Add Column</button>
+            </div>
+        </form>
+    </div>
+</div>

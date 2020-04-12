@@ -1,0 +1,45 @@
+<!-- Para criar o array de colunas no Board -->
+<div class="board-content d-flex flex-row align-content-start pl-3 pr-3">
+    <!-- Para cada coluna do array ele vai escutar o evento addCardClicked que vai executar a função 
+    setLastColumnClicked() que recebe a coluna clicada e faz um click no botão escondido que controla 
+    o Modal Add Card -->
+    <app-column *ngFor="let column of ArrayOfColumns" [column]="column" class="m-2"
+        (addCardClicked)="setLastColumnClicked($event); btnCardModal.click()"
+        (viewCardClicked)="setLastCardClicked($event); btnCardViewModal.click()"
+        (LastColumnClicked)="setLastColumnClicked($event)"></app-column>
+    <!-- Para cada coluna do array ele vai escutar o evento viewCardClicked que vai executar a 
+    função setLastCardClicked() que recebe o card clicado e faz um click no botão escondido que 
+    controla o Modal Edit Card -->
+    <!-- Para cada coluna do array ele vai escutar o evento LastColumnClicked que vai executar a 
+    função setLastColumnClicked() que recebe a ultima coluna clicada -->
+    <!-- app-app-column recebe um input column que vem do ArrayOfColumns  -->
+</div>
+
+
+<!-- Foram criados os botões fantasmas por que anteriormente era criado um modal por coluna, 
+porém o bootstrap não identificava os modais como sendo modais diferentes e sempre abria o 
+modal da primeira coluna ou do primeiro card. Ao adicionar outras colunas e outros cards, 
+não era possivel fazer o bind para os modais corretos. Com isso a decisão foi que o board 
+passou a controlar ambos os modais, usando os eventos do <app-column> para saber qual foi o 
+último card e a última column a ser clicada e passando essa informação para os modais. Assim, 
+existem modais únicos, um para a column e um para o card-->
+
+<!-- Botão escondido que abre o Modal Add Card ao ser clicado pelo btnCardModal.click()-->
+<button class="button-display" data-toggle="modal" data-target="#modalCenterCard" #btnCardModal></button>
+<!-- Modal Add Card-->
+<div class="modal fade" id="modalCenterCard" tabindex="-1" role="dialog" aria-labelledby="modalCenterCardTitle"
+    aria-hidden="true">
+    <!-- app-modal-card controla a última coluna clicada, recebe um input de column -->
+    <app-modal-card [column]="lastClickedColumn"></app-modal-card>
+</div>
+
+
+<!-- Botão escondido que abre o Modal Edit Card ao ser clicado pelo btnCardViewModal.click() -->
+<button class="button-display" data-toggle="modal" data-target="#modalViewCard" #btnCardViewModal></button>
+<!--Modal Edit Card-->
+<div class="modal fade" id="modalViewCard" tabindex="-1" role="dialog" aria-labelledby="modalViewCardTitle"
+    aria-hidden="true">
+    <!-- app-modal-view-card recebe a ultima coluna e o ultimo card como input, para saber o que 
+    mostrar/controlar-->
+    <app-modal-view-card [column]="lastClickedColumn" [card]="lastClickedCard"></app-modal-view-card>
+</div>

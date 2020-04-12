@@ -1,0 +1,15 @@
+<!-- + Add Column Icon Dropdown -->
+<div class=" dropdown ">
+    <i class="fas fa-plus fa-lg pl-3 cursor-pointer icon-color" id="dropdownDescription" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false"></i>
+    <div class="dropdown-menu dropdown-menu-right dropdown-menu{-sm|-md|-lg|-xl}-left p-0"
+        aria-labelledby="dropdownDescription">
+        <button class="btn dropdown-header" data-toggle="modal" data-target="#addColumnModal">+ Add Column</button>
+    </div>
+</div>
+
+<!-- Modal Column -->
+<div class="modal-index modal fade" id="addColumnModal" tabindex="-1" role="dialog"
+    aria-labelledby="addColumnModalLabel" aria-hidden="true">
+    <app-modal-column></app-modal-column>
+</div>

@@ -1,0 +1,14 @@
+<p class="m-0">
+    <i class="fas fa-info-circle ml-3 fa-lg icon-color cursor-pointer" data-toggle="collapse"
+        data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"></i>
+</p>
+
+<div class="dropdown-menu dropdown-menu-right" id="collapseExample">
+    <h6 class="dropdown-header"><em>Project Description</em></h6>
+    <div class="dropdown-divider"></div>
+    <div class="ml-1">
+        <app-label-input class="description-container cursor-pointer container text-justify font-weight-light small"
+            [value]="project.description" [isTextArea]="true" (valueChanged)="DescriptionChanged($event)">
+        </app-label-input>
+    </div>
+</div>

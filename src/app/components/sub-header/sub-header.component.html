@@ -1,0 +1,8 @@
+<div class="sub-header navbar shadow-sm fixed-top" *ngIf="authService.isAuthenticated">
+    <app-label-input class=" sub-header-name" [value]="project.title" (valueChanged)="textChanged($event)">
+    </app-label-input>
+    <div class="d-flex justify-content-end flex-nowrap w-1">
+        <app-add-column></app-add-column>
+        <app-project-info></app-project-info>
+    </div>
+</div>

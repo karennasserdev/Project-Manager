@@ -1,0 +1,21 @@
+<!-- Body Coluna -->
+<div class="card-style card-body bg-light p-3">
+    <div class="mb-3">
+        <!-- app-label-input recebe um input value que neste caso é o título da coluna. Quando app-label-input 
+        emitir o evento valueChanged vai executar a função titleChanged e atribuir o argumento que foi recebido 
+        por ela -->
+        <app-label-input class="h6 title-style" [value]="column.title" (valueChanged)="titleChanged($event)">
+        </app-label-input>
+    </div>
+    <!-- para cada card dentro da coluna renderizar um card -->
+    <div *ngFor="let card of column.cards">
+        <!-- app-card recebe ucm input card e um input column. Quando app-card recebe emitir o evento 
+        viewModalCardClicked vai executar a função viewCard e atribuir o argumento que foi recebido por ela -->
+        <app-card [card]="card" [column]="column" (viewModalCardClicked)="viewCard($event)"
+            (viewLastColumnClicked)="lastColumn($event)"></app-card>
+    </div>
+    <div class="c-header-footer">
+        <button class="btn p-0 button-card" (click)="addCard()">+ Add card</button>
+        <a class="cursor-pointer" (click)="deleteColumn()"><i class="fas fa-trash"></i></a>
+    </div>
+</div>
