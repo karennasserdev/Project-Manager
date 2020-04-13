@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class AuthenticationService {
 
-    isAuthenticated: boolean = true; //trocar pra false depois
+    isAuthenticated: boolean = false;
 
     public login() {
         this.isAuthenticated = true;

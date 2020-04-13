@@ -4,11 +4,5 @@
 </p>
 
 <div class="dropdown-menu dropdown-menu-right" id="collapseExample">
-    <h6 class="dropdown-header"><em>Project Description</em></h6>
-    <div class="dropdown-divider"></div>
-    <div class="ml-1">
-        <app-label-input class="description-container cursor-pointer container text-justify font-weight-light small"
-            [value]="project.description" [isTextArea]="true" (valueChanged)="DescriptionChanged($event)">
-        </app-label-input>
-    </div>
+    <a routerLink="/description" routerLinkActive="active" class="dropdown-header"><em>Go to Project Description</em></a>
 </div>

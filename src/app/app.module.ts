@@ -18,6 +18,10 @@ import { ModalColumnComponent } from './components/modal-column/modal-column.com
 import { ModalCardComponent } from './components/modal-card/modal-card.component';
 import { LabelInputComponent } from './components/label-input/label-input.component';
 import { ModalViewCardComponent } from './components/modal-view-card/modal-view-card.component';
+import { ProjectDescriptionComponent } from './components/project-description/project-description.component';
+import { CanActivateTeam } from './can-activate/can-activate-autenticaded';
+
+
 
 @NgModule({
     declarations: [
@@ -36,13 +40,14 @@ import { ModalViewCardComponent } from './components/modal-view-card/modal-view-
         ModalCardComponent,
         LabelInputComponent,
         ModalViewCardComponent,
+        ProjectDescriptionComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         ReactiveFormsModule,
     ],
-    providers: [],
+    providers: [CanActivateTeam],
     bootstrap: [AppComponent
     ]
 })
