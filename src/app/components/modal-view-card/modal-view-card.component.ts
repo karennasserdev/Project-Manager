@@ -1,5 +1,5 @@
 import { Card } from './../models/card';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ColumnService } from 'src/app/services/column.service';
 import { Column } from '../models/column';
 
@@ -8,9 +8,15 @@ import { Column } from '../models/column';
     templateUrl: './modal-view-card.component.html',
     styleUrls: ['./modal-view-card.component.scss']
 })
-export class ModalViewCardComponent {
+export class ModalViewCardComponent implements OnInit {
+
+    ArrayOfColumns: Column[] = [];
 
     constructor(private columnService: ColumnService) { }
+
+    ngOnInit() {
+        this.ArrayOfColumns = this.columnService.getColumns();
+    }
 
     @Input()
     card: Card;
@@ -27,5 +33,9 @@ export class ModalViewCardComponent {
             this.columnService.removeCard(this.card, this.column);
         }
     };
+
+    moveToColumn(columnTarget: Column) {
+        this.columnService.moveCard(this.card, this.column, columnTarget);
+    }
 
 }

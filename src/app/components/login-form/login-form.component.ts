@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponent {
 
+
+
     submitted: boolean = false;
 
     form: FormGroup = new FormGroup({
@@ -21,7 +23,7 @@ export class LoginFormComponent {
     constructor(private authService: AuthenticationService, private router: Router) { }
 
     submit(): boolean {
-        
+
         this.submitted = true;
 
         //Se o form for válido...
@@ -35,6 +37,7 @@ export class LoginFormComponent {
     }
 
     get email() { return this.form.get('email') };
+
     isEmailInvalid(): boolean {
         return this.email.invalid && (this.email.dirty || this.email.touched);
     }

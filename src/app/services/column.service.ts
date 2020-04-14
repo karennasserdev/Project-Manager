@@ -11,7 +11,6 @@ export class ColumnService {
     cardsModel: Card[];
     open: any;
 
-
     constructor() { }
 
     getColumns(): Column[] {
@@ -37,5 +36,11 @@ export class ColumnService {
     removeCard(card: Card, column: Column) {
         let i = column.cards.indexOf(card);
         column.cards.splice(i, 1);
+    }
+
+    moveCard(card: Card, currentColumn: Column, columnTarget: Column) {
+        let i = currentColumn.cards.indexOf(card);
+        currentColumn.cards.splice(i, 1);
+        columnTarget.cards.push(card);
     }
 }

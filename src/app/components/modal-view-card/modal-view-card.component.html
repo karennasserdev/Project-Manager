@@ -1,59 +1,59 @@
 <!-- Modal - Card Editor -->
-<div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content p-3">
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content p-3">
 
-        <!-- Title and Label Container -->
-        <div *ngIf="card !== undefined && column !== undefined" class="mb-2">
+            <!-- Title and Label Container -->
+            <div *ngIf="card !== undefined && column !== undefined" class="mb-2">
 
-            <!-- Card Title (editable) -->
-            <div class="d-flex flex-row justify-content-between align-items-center cursor-pointer">
-                <app-label-input class="p-0 text-title color-text" [value]="card.title"
-                    (valueChanged)="titleCardChanged($event)"></app-label-input>
+                <!-- Card Title (editable) -->
+                <div class="d-flex flex-row justify-content-between align-items-center cursor-pointer">
+                    <app-label-input class="p-0 text-title color-text" [value]="card.title"
+                        (valueChanged)="titleCardChanged($event)"></app-label-input>
 
-                <!-- Label Button -->
-                <div class="dropdown">
-                    <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" id="dropdownModalCard"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Label
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownModalCard">
-                        <li class="dropdown-item"><span class="card-label card-label-green"></span></li>
-                        <li class="dropdown-item"></li>
-                        <li class="dropdown-item"></li>
-                        <li class="dropdown-item"></li>
+                    <!-- Label Button -->
+                    <div class="dropdown">
+                        <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button"
+                            id="dropdownModalCard" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Column
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownModalCard">
+                            <a class="dropdown-item" *ngFor="let column of ArrayOfColumns"
+                                (click)="moveToColumn(column)">{{column.title}}</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- Subheader to indicate in witch column the card is -->
-            <p class="text-muted mt-1">in column {{column.title}} </p>
-            
-            <!-- Description and Comment Wrap -->
-            <div>
-                <!-- Description section -->
-                <div class="mb-3">
-                    <div class="color-text d-flex flex-row justify-content-start">
-                        <i class="fas fa-edit pr-2"></i>
-                        <h6>Description</h6>
-                    </div>
-                    <textarea id="modalCardDescription" rows="4" cols="50" class="textarea-view w-100"
-                        [value]="card.description" placeholder="Description"></textarea>
-                </div>
-                <!-- Comment section -->
+                <!-- Subheader to indicate in witch column the card is -->
+                <p class="text-muted mt-1">in column {{column.title}} </p>
+
+                <!-- Description and Comment Wrap -->
                 <div>
-                    <div class="color-text d-flex flex-row justify-content-start">
-                        <i class="far fa-comment pr-2"></i>
-                        <h6>Comments</h6>
+                    <!-- Description section -->
+                    <div class="mb-3">
+                        <div class="color-text d-flex flex-row justify-content-start">
+                            <i class="fas fa-edit pr-2"></i>
+                            <h6>Description</h6>
+                        </div>
+                        <textarea id="modalCardDescription" rows="4" cols="50" class="textarea-view w-100"
+                            [value]="card.description" placeholder="Description"></textarea>
                     </div>
-                    <textarea id="modalCardComments" class="textarea-view w-100" [value]="card.comments"
-                        placeholder="Comments"></textarea>
+                    <!-- Comment section -->
+                    <div>
+                        <div class="color-text d-flex flex-row justify-content-start">
+                            <i class="far fa-comment pr-2"></i>
+                            <h6>Comments</h6>
+                        </div>
+                        <textarea id="modalCardComments" class="textarea-view w-100" [value]="card.comments"
+                            placeholder="Comments"></textarea>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Footer section -->
-        <div class="d-flex justify-content-end align-items-center mt-2">
-            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-secondary btn-sm btn-danger ml-2" data-dismiss="modal"
-                (click)="deleteCard()">Delete Card</button>
+            <!-- Footer section -->
+            <div class="d-flex justify-content-end align-items-center mt-2">
+                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary btn-sm btn-danger ml-2" data-dismiss="modal"
+                    (click)="deleteCard()">Delete Card</button>
+            </div>
         </div>
     </div>
 </div>

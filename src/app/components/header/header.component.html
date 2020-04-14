@@ -1,16 +1,17 @@
 <!-- div para não autenticados -->
 <!-- *ngIf = se o usuário não estiver autenticado, mostrar este HTML. O serviço que vai retornar 
 se está true ou false. -->
-<div class="nav-h navbar navbar-light bg-lights shadow-sm d-flex justify-content-between" *ngIf="!authService.isAuthenticated">
+<div class="background-style navbar flex-nowrap shadow-sm justify-content-lg-between"
+    *ngIf="!authService.isAuthenticated">
     <img [src]="logoPath" width="150" height="60" class="mr-4 ml-3" alt="logo-img">
-    <h6 class="text-color"><small>Keep everything organized!</small></h6>
+    <h6 class="text-color m-0 "><small>Keep everything organized!</small></h6>
 </div>
 
 <!-- div para autenticados -->
 <!-- *ngIf = se o usuário estiver autenticado, mostrar este HTML. O serviço que vai retornar 
 se está true ou false. -->
-<div class="navbar-color navbar navbar-light vw-100 align-content-center" *ngIf="authService.isAuthenticated">
-    <img [src]="logoPath2" width="100" height="50" alt="logo">
+<div class="navbar-color navbar navbar-light fixed-top" *ngIf="authService.isAuthenticated">
+    <img class="d-none d-md-block d-lg-none d-lg-block" [src]="logoPath2" width="100" height="50" alt="logo">
     <div class="navbar-title text-center d-flex flex-column mt-1">
         <h6><strong>Project Manager</strong></h6>
         <h6><small> Keep everything organized!</small></h6>

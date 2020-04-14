@@ -4,6 +4,8 @@ $primary: #425a74;
 body {
   font-family: "Spartan", sans-serif;
   background-color: #1c646421;
+  width: 100vw;
+  height: 100vh;
 }
 
 textarea {
@@ -28,8 +30,8 @@ input {
 }
 
 .board-content {
-    padding-top: 8em;
-  }
+  padding-top: 8em;
+}
 
 .cursor-pointer {
   cursor: pointer;
@@ -52,6 +54,10 @@ input {
   height: 5rem;
   margin: auto;
   color: #1c6464;
+}
+
+.background-style {
+  background-color: #e5eeee;
 }
 
 // ---- SCROLL BAR ----

@@ -1,83 +1,98 @@
-<div class="container-d d-flex flex-row justify-content-around p-3 flex-wrap">
-    <div class="card ml-1">
-        <div class="card-header color-text d-flex align-items-center pt-3">
-            <h6 class="m-0">About Project</h6>
-        </div>
-        <div class="card-body">
-            <div class="d-flex flex-column mb-4">
-                <label class="label-title color-text">Description:</label>
-                <textarea class="form-control text-area-style cursor-pointer" id="personalFormTextArea"
-                    rows="9"></textarea>
+<form [formGroup]="formPersonal">
+    <div class="container-d d-flex flex-row justify-content-around align-items-stretch flex-wrap p-3">
+        <!-- Section About -->
+        <div class="card flex-fill mr-2">
+            <div class="card-header color-text d-flex align-items-center pt-3">
+                <h6 class="m-2">About Project</h6>
             </div>
-            <div class="mb-3">
-                <h6 class="label-title color-text">Project Visibility:</h6>
-                <div class="custom-control custom-switch pl-0 d-flex align-items-center">
-                    <label class="mr-5 mb-0 label-title color-text">Private</label>
-                    <input type="checkbox" class="custom-control-input switch-btn" id="customSwitch1" checked
-                        data-toggle="toggle">
-                    <label class="custom-control-label label-title color-text btn-sm"
-                        for="customSwitch1">Public</label>
-                </div>
-            </div>
-            <div>
-                <h6 class="label-title color-text">Share Link:</h6>
-                <div class="d-flex align-items-center">
-                    <i class="fab fa-linkedin"></i>
-                    <i class="fab fa-github"></i>
-                    <i class="fab fa-facebook-square"></i>
-                    <i class="fab fa-twitter-square"></i>
-                    <i class="fab fa-instagram"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card mr-1">
-        <div class="card-header color-text d-flex align-items-center justify-content-between pt-3">
-            <h6 class="m-0">Personal Info</h6>
-            <img [src]="avatarPath" width="35" height="35">
-        </div>
-        <form [formGroup]="formPersonal">
             <div class="card-body">
-                <div class="d-flex flex-row justify-content-between">
-                    <div class="d-flex flex-column mb-3">
-                        <label class="label-title color-text">Name:</label>
-                        <input type="text" class="form-control-sm text-area-style" formControlName="name" [class.is-invalid]="isNameInvalid()"
-                        id="personalName" aria-describedby="nameHelp" >
-                        <small id="nameHelp" class="form-text text-danger" *ngIf="isNameInvalid()">Name is
-                            required!</small>
-                    </div>
 
-                    <div class="d-flex flex-column mb-3">
-                        <label class="label-title color-text">Username:</label>
-                        <input type="text" class="form-control-sm text-area-style" formControlName="username" [class.is-invalid]="isUserInvalid()"
-                        id="personalUser" aria-describedby="userHelp" >
-                        <small id="userHelp" class="form-text text-danger" *ngIf="isUserInvalid()">Username is
-                            required!</small>
+                <div class="d-flex flex-column mb-4">
+                    <label class="label-title color-text">Description:</label>
+                    <textarea class="form-control text-area-style cursor-pointer" id="personalFormTextArea" rows="9"
+                        formControlName="desc" (change)="onDescChange($event)"></textarea>
+                </div>
+                <div class="mb-3">
+                    <h6 class="label-title color-text">Project Visibility:</h6>
+                    <div class="custom-control custom-switch pl-0 d-flex align-items-center">
+                        <label class="mr-5 mb-0 label-title color-text">Private</label>
+                        <input type="checkbox" class="custom-control-input switch-btn" id="customSwitch1" checked
+                            data-toggle="toggle">
+                        <label class="custom-control-label label-title color-text btn-sm"
+                            for="customSwitch1">Public</label>
                     </div>
                 </div>
-                <div class="d-flex flex-column mb-3">
-                    <label class="label-title color-text">Bio:</label>
-                    <textarea class="form-control text-area-style" id="personalFormTextArea" rows="5"></textarea>
+                <div>
+                    <h6 class="label-title color-text">Share Link:</h6>
+                    <div class="d-flex align-items-center">
+                        <i class="fab fa-linkedin"></i>
+                        <i class="fab fa-github"></i>
+                        <i class="fab fa-facebook-square"></i>
+                        <i class="fab fa-twitter-square"></i>
+                        <i class="fab fa-instagram"></i>
+                    </div>
                 </div>
-
-                <div class="d-flex flex-column">
-                    <div class="label-title color-text mb-2">Contacts:</div>
-                    <div class="d-flex flex-row justify-content-between">
-                        <div class="d-flex flex-column mb-3 form-group">
-                            <label class="label-title color-text" for="personalEmail">Email:</label>
-                            <input type="email" class="form-control-sm text-area-style" formControlName="email" [class.is-invalid]="isEmailInvalid()"
-                            id="personalEmail" aria-describedby="emailHelp" >
-                            <small id="emailHelp" class="form-text text-danger" *ngIf="isEmailInvalid()">Email is
+            </div>
+        </div>
+        <!-- Section Personal Info -->
+        <div class="card flex-fill ml-2">
+            <div class="card-header color-text d-flex align-items-center justify-content-between pt-3">
+                <h6 class="m-0">Personal Info</h6>
+                <img [src]="avatarPath" width="35" height="35">
+            </div>
+            <div class="card-body">
+                <!-- Form -->
+                <div class="form-group">
+                    <!-- section 1 -->
+                    <div class="d-flex align-items-center">
+                        <!-- Name -->
+                        <div class="d-flex flex-column mb-3 pr-2">
+                            <label class="label-title color-text">Name:</label>
+                            <input type="text" class="form-control-sm text-area-style" formControlName="name"
+                                [class.is-invalid]="isNameInvalid()" id="personalName" aria-describedby="nameHelp"
+                                (change)="onNameChange($event)">
+                            <small id="nameHelp" class="form-text text-danger" *ngIf="isNameInvalid()">Name is
                                 required!</small>
                         </div>
+                        <!-- Username -->
                         <div class="d-flex flex-column mb-3">
-                            <label class="label-title color-text">Tel:</label>
-                            <input type="tel" class="form-control-sm text-area-style">
+                            <label class="label-title color-text">Username:</label>
+                            <input type="text" class="form-control-sm text-area-style" formControlName="username"
+                                [class.is-invalid]="isUserInvalid()" id="personalUser" aria-describedby="userHelp"
+                                (change)="onUserNameChange($event)">
+                            <small id="userHelp" class="form-text text-danger" *ngIf="isUserInvalid()">Username is
+                                required!</small>
+                        </div>
+                    </div>
+                    <!-- section 2 -->
+                    <div class="d-flex flex-column mb-3">
+                        <label class="label-title color-text">Bio:</label>
+                        <textarea class="form-control text-area-style cursor-pointer" id="personalFormTextArea" rows="5"
+                            formControlName="bio" (change)="onBioChange($event)"></textarea>
+                    </div>
+                    <!-- section 3-->
+                    <div class="d-flex flex-column">
+                        <div class="label-title color-text mb-2">Contacts:</div>
+                        <div class="d-flex align-items-center">
+                            <!-- email -->
+                            <div class="d-flex flex-column mb-3 pr-2 form-group">
+                                <label class="label-title color-text" for="personalEmail">Email:</label>
+                                <input type="email" class="form-control-sm text-area-style" formControlName="email"
+                                    [class.is-invalid]="isEmailInvalid()" id="personalEmail"
+                                    aria-describedby="emailHelp" (change)="onEmailChange($event)">
+                                <small id="emailHelp" class="form-text text-danger" *ngIf="isEmailInvalid()">Email is
+                                    required!</small>
+                            </div>
+                            <!-- Tel-->
+                            <div class="d-flex flex-column mb-3">
+                                <label class="label-title color-text">Tel:</label>
+                                <input type="tel" class="form-control-sm text-area-style" formControlName="tel"
+                                    (change)="onTelChange($event)">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
-</div>
+</form>
