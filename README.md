@@ -1,7 +1,7 @@
 PROJECT MANAGER
+
 This was my final project to Flag Front-End Development Course.
-The objective of this project was to use tools that were taught along the course, such as HTML, CSS, JS, and Angular. The methods and frameworks chosen for the execution of the project were Angular, Bootstrap, Sass and HTML.
-The project theme was chosen by me and I decided to make a Project Manager app inspired by Trello. I worked with columns, lists, sorting types, modals, forms, authentication services, routing, communication between components... I also did all the style, responsive design, organization, and presentation of the app.
+The objective of this project was to use tools that were taught along the course.The project theme was chosen by me and I decided to make a Project Manager app inspired by Trello. I worked with columns, lists, sorting types, modals, forms, authentication services, routing, communication between components... I also did all the style, responsive design, organization, and presentation of the app.
 
 # FinalProject
 
